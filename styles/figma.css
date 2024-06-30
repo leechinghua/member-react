@@ -1,0 +1,50 @@
+:root {
+  --primary-1: #389b87;
+  --secondary-1: #929311;
+  --secondary-2: #c1c202;
+  --secondary-3: #fdaf17;
+  --secondary-4: #fffcf0;
+  --white: white;
+  --black: black;
+  --grey-800: #575757;
+  --grey-600: #757575;
+  --grey-400: #c4c4c4;
+  --grey-200: #f7f7f7;
+  --white: #ffffff;
+  --h1: 48px;
+  --h2: 32px;
+  --h3: 28px;
+  --h4: 24px;
+  --h5: 20px;
+  --h6: 18px;
+  --p: 16px;
+  --p2: 14px;
+  --p3: 12px;
+  --p4: 10px;
+  --h4-weight: 600;
+}
+@font-face {
+  font-family: "MyInter";
+  src: url("fontfamily/Inter/Inter-VariableFont_slnt,wght.ttf")
+    format("truetype");
+  unicode-range: U+0000-007F; /* Basic Latin /
+}
+
+@font-face {
+  font-family: "MyNotoSansTC";
+  src: url("fontfamily/Noto_Sans_TC/NotoSansTC-VariableFont_wght.ttf")
+    format("truetype");
+  unicode-range: U+4E00-9FFF; / CJK Unified Ideographs /
+}
+
+@font-face {
+  font-family: "MyLuckiestGuy";
+  src: url("fontfamily/Luckiest_Guy/LuckiestGuy-Regular.ttf") format("truetype");
+  unicode-range: U+0000-007F; / Basic Latin */
+}
+
+body {
+  margin: 0;
+  font-family: "MyInter", "MyNotoSansTC", sans-serif;
+  background-color: var(--secondary-4);
+}
