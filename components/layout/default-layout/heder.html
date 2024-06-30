@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
   <title>Document</title>
+  <link rel="stylesheet" href="/styles/normalize.css" />
+  <link rel="stylesheet" href="/styles/reset.css" />
+  <link rel="stylesheet" href="/styles/figma.css" />
+
   <style>
     .box{
       display: flex;
@@ -68,10 +72,9 @@
       }
       svg{
         width: 60px;
-height: 60px;
+        height: 60px;
       }
-      }
-      
+      }     
     }
     
     button{
@@ -93,10 +96,15 @@ height: 60px;
       align-items: center;
       gap: 114px;
     }
+    .loginPanel{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container loginPanel">
    <div class="box">
     <div class="section1">
       <h2>歡迎使用</h2>
