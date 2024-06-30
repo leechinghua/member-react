@@ -4,7 +4,7 @@
   --secondary-2: #c1c202;
   --secondary-3: #fdaf17;
   --secondary-4: #fffcf0;
-  --white: white;
+  /* --white: white; */
   --black: black;
   --grey-800: #575757;
   --grey-600: #757575;
@@ -27,7 +27,7 @@
   font-family: "MyInter";
   src: url("fontfamily/Inter/Inter-VariableFont_slnt,wght.ttf")
     format("truetype");
-  unicode-range: U+0000-007F; /* Basic Latin /
+  unicode-range: U+0000-007F; /* Basic Latin */
 }
 
 @font-face {
@@ -47,4 +47,30 @@ body {
   margin: 0;
   font-family: "MyInter", "MyNotoSansTC", sans-serif;
   background-color: var(--secondary-4);
+}
+
+
+
+h2{
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+h4{
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+h5{
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
