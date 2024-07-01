@@ -8,9 +8,15 @@
   <link rel="stylesheet" href="/styles/normalize.css" />
   <link rel="stylesheet" href="/styles/reset.css" />
   <link rel="stylesheet" href="/styles/figma.css" />
+  
 
   <style>
-    .box{
+    .loginPanel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box {
       display: flex;
       width: 800px;
       max-width: 800px;
@@ -21,7 +27,7 @@
       align-items: center;
       gap: 20px;
     }
-    .section1{
+    .section1 {
       display: flex;
       width: 800px;
       max-width: 800px;
@@ -31,76 +37,89 @@
       justify-content: center;
       align-items: center;
       gap: 20px;
-      input{
-      display: flex;
-      padding: 5px;
-      align-items: center;
-      gap: 10px;
-      align-self: stretch;
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        align-self: stretch;
+        input {
+          display: flex;
+          padding: 5px;
+          align-items: center;
+          gap: 10px;
+          align-self: stretch;
+          outline: none;
+          &:hover,
+          :focus {
+            border: 1px solid var(--secondary-3, #fdaf17);
+          }
+        }
+        button {
+          border-radius: 5px;
+          background: var(--white, #fff);
+          color: var(--secondary-3, #fdaf17);
+          display: flex;
+          padding: 5px;
+          justify-content: center;
+          align-items: center;
+          align-self: stretch;
+          border: 1px solid var(--secondary-3, #fdaf17);
+          &:hover {
+            background: var(--secondary-3, #fdaf17);
+            color: var(--white, #fff);
+          }
+        }
+      }
     }
-    }
-    .section2{
+    .section2 {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 8px;
       align-self: stretch;
+      .line {
+        width: 202px;
+        height: 1px;
+        background: var(--grey-600, #757575);
+      }
     }
-    .line{
-      width: 202px;
-      height: 1px;
-      background: var(--grey-600, #000);
-    }
-    .section3{
+  
+    .section3 {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       gap: 15px;
       align-self: stretch;
-      .socialMedia{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 114px;
-      .icon{
+      .socialMedia {
         display: flex;
-        padding: 5px;
         justify-content: center;
         align-items: center;
-        gap: 10px;
+        gap: 114px;
+        .icon {
+          display: flex;
+          padding: 5px;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          :hover{
+            opacity: 0.7;
+          } 
+          svg {
+            width: 60px;
+            height: 60px;
+          }
+        }
       }
-      svg{
-        width: 60px;
-        height: 60px;
+      a {
+        color:var(--grey-600, #757575);
+        &:hover{
+          color: var(--secondary-3, #fdaf17);
+        }
       }
-      }     
     }
     
-    button{
-      
-      border-radius: 5px;
-      background: var(--secondary-3, #FDAF17);
-
-     
-      display: flex;
-      padding: 5px;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      align-self: stretch;
-    }
-    .socialMedia{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 114px;
-    }
-    .loginPanel{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
   </style>
 </head>
 <body>
@@ -108,9 +127,12 @@
    <div class="box">
     <div class="section1">
       <h2>歡迎使用</h2>
-      <input type="text" value="請輸入您的信箱" name="account">      
-      <input type="text" value="請輸入您的密碼" name="password">
-      <button>登入</button>
+      <form>
+        <input type="text" value="請輸入您的信箱" name="account" id="email" onfocus="clearInput(this)" onblur="restoreInput(this)">      
+        <input type="text" value="請輸入您的密碼" name="password" id="password"
+        onfocus="clearInput(this)" onblur="restoreInput(this)">
+        <button>登入</button>
+      </form>
     </div>
     <div class="section2">
     <div class="line"></div>
@@ -122,8 +144,8 @@
         <span class="icon"><svg><use href="#faceBook"></use></svg></span>
         <span class="icon"><svg><use href="#google"></use></svg></span>
       </div>
-      <div>還沒有帳號嗎?<a>註冊</a></div>
-      <div><a>忘記密碼</a></div>
+      <div>還沒有帳號嗎?<a class="link">註冊</a></div>
+      <div><a class="link">忘記密碼</a></div>
     </div>
    </div>
   </div>
@@ -139,5 +161,18 @@
     <path d="M30.5999 11.598C36.2339 11.598 40.0319 14.034 42.1978 16.062L50.6639 7.8C45.4678 2.964 38.6999 0 30.5999 0C18.8639 0 8.73585 6.732 3.79785 16.536L13.4999 24.066C15.9359 16.836 22.6679 11.598 30.5999 11.598Z" fill="#EB4335"/>
   </symbol>
 </svg>  
+<script>
+  function clearInput(e){
+    if(e.value === e.defaultValue){
+      e.value="";
+    }
+  }
+  function restoreInput(e){
+    if(e.va lue === ""){
+      e.value=e.defaultValue;
+    }
+  }
+
+</script>
 </body>
 </html>
