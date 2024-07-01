@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/normalize.css" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/figma.css" />
+    <link rel="stylesheet" href="/styles/login.module.css" />
+    <style>
+      .workChain {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 11px;
+        align-self: stretch;
+        .workChainText {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          align-self: stretch;
+        }
+        .workChainLine {
+          display: flex;
+          padding: 0px 31px;
+          justify-content: center;
+          align-items: center;
+          align-self: stretch;
+          .dot {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+          }
+          .line15 {
+            width: 250.957px;
+            height: 20px;
+            background: #000;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container loginPanel">
+      <div class="box">
+        <div class="section1">
+          <h2>註冊帳號</h2>
+          <div class="workChain">
+            <div class="workChainText">
+              <span>輸入資料 </span>
+              <span>資料驗證 </span>
+              <span>註冊完成 </span>
+            </div>
+            <div class="workChainLine">
+              <span class="dot">
+                <svg><use href="#dot"></use></svg>
+              </span>
+              <div class="line15"></div>
+              <span class="dot"
+                ><svg><use href="#dot"></use></svg
+              ></span>
+              <div class="line15"></div>
+              <span class="dot"
+                ><svg><use href="#dot"></use></svg
+              ></span>
+            </div>
+          </div>
+          <form>
+            <input
+              type="text"
+              value="請輸入您的信箱"
+              name="account"
+              id="email"
+              onfocus="clearInput(this)"
+              onblur="restoreInput(this)"
+            />
+            <input
+              type="text"
+              value="請輸入您的密碼"
+              name="password"
+              id="password"
+              onfocus="clearInput(this)"
+              onblur="restoreInput(this)"
+            />
+            <p>需含有8字元以上英文字母數字和符號</p>
+            <p></p>
+            <button>註冊</button>
+          </form>
+        </div>
+        <div class="section2">
+          <div class="line"></div>
+          <div>或</div>
+          <div class="line"></div>
+        </div>
+        <div class="section3">
+          <div class="socialMedia">
+            <span class="icon"
+              ><svg><use href="#faceBook"></use></svg
+            ></span>
+            <span class="icon"
+              ><svg><use href="#google"></use></svg
+            ></span>
+          </div>
+          <div>還沒有帳號嗎?<a class="link">註冊</a></div>
+          <div><a class="link">忘記密碼</a></div>
+        </div>
+      </div>
+    </div>
+    <svg>
+      <symbol id="faceBook">
+        <path
+          d="M10.253 0H49.7467C55.4057 0 60 4.59432 60 10.2532V49.7468C60 55.4057 55.4057 60 49.7467 60H10.2537C4.59468 60 0.000244141 55.4056 0.000244141 49.7465V10.2528C0.000244141 4.59412 4.59437 0 10.253 0Z"
+          fill="#1677F0"
+        />
+        <path
+          d="M41.1688 60V36.9642H48.9011L50.0589 27.9865H41.1688V22.2538C41.1688 19.6554 41.89 17.8841 45.6178 17.8841L50.3714 17.8819V9.8524C49.5486 9.74302 46.7275 9.4989 43.4436 9.4989C36.5904 9.4989 31.8975 13.6829 31.8975 21.3658V27.9865H24.146V36.9642H31.8975V60H41.1688Z"
+          fill="white"
+        />
+      </symbol>
+      <symbol id="google">
+        <path
+          d="M59.4001 30.666C59.4001 28.2 59.2021 26.4 58.7641 24.534H30.6001V35.67H47.1361C46.8001 38.436 45.0001 42.6 40.9981 45.402L40.9441 45.774L49.8481 52.674L50.4661 52.734C56.1361 47.502 59.4001 39.798 59.4001 30.666Z"
+          fill="#4285F4"
+        />
+        <path
+          d="M30.6002 60C38.7002 60 45.4982 57.336 50.4662 52.734L40.9982 45.402C38.4662 47.166 35.0642 48.402 30.6002 48.402C22.6682 48.402 15.9362 43.17 13.5362 35.934L13.1822 35.964L3.9242 43.128L3.8042 43.464C8.7362 53.268 18.8642 60 30.6002 60Z"
+          fill="#34A853"
+        />
+        <path
+          d="M13.5361 35.934C12.9001 34.068 12.5341 32.07 12.5341 30C12.5341 27.936 12.9001 25.932 13.5001 24.066L13.4821 23.67L4.1041 16.386L3.7981 16.53C1.7641 20.598 0.600098 25.164 0.600098 30C0.600098 34.836 1.7641 39.402 3.7981 43.464L13.5361 35.934Z"
+          fill="#FBBC05"
+        />
+        <path
+          d="M30.5999 11.598C36.2339 11.598 40.0319 14.034 42.1978 16.062L50.6639 7.8C45.4678 2.964 38.6999 0 30.5999 0C18.8639 0 8.73585 6.732 3.79785 16.536L13.4999 24.066C15.9359 16.836 22.6679 11.598 30.5999 11.598Z"
+          fill="#EB4335"
+        />
+      </symbol>
+      <symbol id="dot">
+        <circle cx="7.47828" cy="7.00001" r="6.52174" fill="#575757" />
+      </symbol>
+    </svg>
+    <script>
+      function clearInput(e) {
+        if (e.value === e.defaultValue) {
+          e.value = ''
+        }
+      }
+      function restoreInput(e) {
+        if (e.value === '') {
+          e.value = e.defaultValue
+        }
+      }
+    </script>
+  </body>
+</html>
