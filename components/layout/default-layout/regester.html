@@ -34,6 +34,10 @@
           align-items: center;
           align-self: stretch;
           .dot {
+            width: 13.043px;
+            height: 13.043px;
+            background-color: var(--grey-800, #575757);
+            border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -41,7 +45,7 @@
           }
           .line15 {
             width: 250.957px;
-            height: 20px;
+            height: 1px;
             background: #000;
           }
         }
@@ -60,17 +64,11 @@
               <span>註冊完成 </span>
             </div>
             <div class="workChainLine">
-              <span class="dot">
-                <svg><use href="#dot"></use></svg>
-              </span>
+              <div class="dot"></div>
               <div class="line15"></div>
-              <span class="dot"
-                ><svg><use href="#dot"></use></svg
-              ></span>
+              <div class="dot"></div>
               <div class="line15"></div>
-              <span class="dot"
-                ><svg><use href="#dot"></use></svg
-              ></span>
+              <div class="dot"></div>
             </div>
           </div>
           <form>
@@ -90,28 +88,20 @@
               onfocus="clearInput(this)"
               onblur="restoreInput(this)"
             />
-            <p>需含有8字元以上英文字母數字和符號</p>
-            <p></p>
+            <div>需含有8字元以上英文字母數字和符號</div>
+            <input
+              type="text"
+              value="請輸入您的密碼"
+              name="password"
+              id="password"
+              onfocus="clearInput(this)"
+              onblur="restoreInput(this)"
+            />
+            <input type="checkbox" >
+            <label>我同意Yeah Fun的<a>會員條款</a>跟<a>隱私政策</a></label>
             <button>註冊</button>
           </form>
-        </div>
-        <div class="section2">
-          <div class="line"></div>
-          <div>或</div>
-          <div class="line"></div>
-        </div>
-        <div class="section3">
-          <div class="socialMedia">
-            <span class="icon"
-              ><svg><use href="#faceBook"></use></svg
-            ></span>
-            <span class="icon"
-              ><svg><use href="#google"></use></svg
-            ></span>
-          </div>
-          <div>還沒有帳號嗎?<a class="link">註冊</a></div>
-          <div><a class="link">忘記密碼</a></div>
-        </div>
+        </div>        
       </div>
     </div>
     <svg>
