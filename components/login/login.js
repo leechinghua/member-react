@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from '@/components/login/login.module.css'
+import Image from 'next/image'
 
 export default function Login() {
   return (
@@ -36,14 +37,20 @@ export default function Login() {
           <div className={styles.section3}>
             <div className={styles.socialMedia}>
               <span className={styles.icon}>
-                <svg>
-                  <use href="#faceBook" />
-                </svg>
+                <Image
+                  src="/facebook.svg"
+                  alt="Facebook Icon"
+                  width={60}
+                  height={60}
+                />
               </span>
               <span className={styles.icon}>
-                <svg>
-                  <use href="#google" />
-                </svg>
+                <Image
+                  src="/google.svg"
+                  alt="Facebook Icon"
+                  width={60}
+                  height={60}
+                />
               </span>
             </div>
             <div>
