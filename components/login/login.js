@@ -4,11 +4,11 @@ import styles from '@/components/login/login.module.css'
 export default function Login() {
   return (
     <>
-      <div className={styles['loginPanel']}>
-        <div className="box">
-          <div className="section1">
+      <div className={styles.loginPanel}>
+        <div className={styles.box}>
+          <div className={styles.section1}>
             <h2>歡迎使用</h2>
-            <form>
+            <form className={styles.loginForm}>
               <input
                 type="text"
                 defaultValue="請輸入您的信箱"
@@ -25,32 +25,32 @@ export default function Login() {
                 onfocus="clearInput(this)"
                 onblur="restoreInput(this)"
               />
-              <button>登入</button>
+              <button className={styles.loginButton}>登入</button>
             </form>
           </div>
-          <div className="section2">
-            <div className="line" />
+          <div className={styles.section2}>
+            <div className={styles.line} />
             <div>或</div>
-            <div className="line" />
+            <div className={styles.line} />
           </div>
-          <div className="section3">
-            <div className="socialMedia">
-              <span className="icon">
+          <div className={styles.section3}>
+            <div className={styles.socialMedia}>
+              <span className={styles.icon}>
                 <svg>
                   <use href="#faceBook" />
                 </svg>
               </span>
-              <span className="icon">
+              <span className={styles.icon}>
                 <svg>
                   <use href="#google" />
                 </svg>
               </span>
             </div>
             <div>
-              還沒有帳號嗎?<a className="link">註冊</a>
+              還沒有帳號嗎?<a className={styles.link}>註冊</a>
             </div>
             <div>
-              <a className="link">忘記密碼</a>
+              <a className={styles.link}>忘記密碼</a>
             </div>
           </div>
         </div>
