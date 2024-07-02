@@ -1,8 +1,14 @@
-import React from 'react'
+import { useState } from 'react'
 import styles from '@/components/login/login.module.css'
 import Image from 'next/image'
 
 export default function Login() {
+  const [inputEmail, setInputEmail] = useState('')
+  // 密碼輸入框
+  const [inputPassword, setInputPassword] = useState('')
+  // 顯示密碼的核取方塊使用，切換是否要呈現密碼
+  const [showPassword, setShowPassword] = useState(false)
+
   return (
     <>
       <div className={styles.loginPanel}>
@@ -12,19 +18,21 @@ export default function Login() {
             <form className={styles.loginForm}>
               <input
                 type="text"
-                defaultValue="請輸入您的信箱"
-                name="account"
+                value={inputEmail}
+                name="email"
                 id="email"
-                onfocus="clearInput(this)"
-                onblur="restoreInput(this)"
+                onChange={(e) => {
+                  setInputEmail(e.target.value)
+                }}
               />
               <input
                 type="text"
-                defaultValue="請輸入您的密碼"
+                value={inputPassword}
                 name="password"
                 id="password"
-                onfocus="clearInput(this)"
-                onblur="restoreInput(this)"
+                onChange={(e) => {
+                  setInputPassword(e.target.value)
+                }}
               />
               <button className={styles.loginButton}>登入</button>
             </form>
