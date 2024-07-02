@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import styles from '@/components/login/login.module.css'
 import Image from 'next/image'
+import { MdOutlineRemoveRedEye } from 'react-icons/md'
 
 export default function Login() {
-  const [inputEmail, setInputEmail] = useState('')
+  const [inputEmail, setInputEmail] = useState('請輸入您的信箱')
   // 密碼輸入框
-  const [inputPassword, setInputPassword] = useState('')
+  const [inputPassword, setInputPassword] = useState('請輸入您的密碼')
   // 顯示密碼的核取方塊使用，切換是否要呈現密碼
   const [showPassword, setShowPassword] = useState(false)
 
@@ -24,9 +25,11 @@ export default function Login() {
                 onChange={(e) => {
                   setInputEmail(e.target.value)
                 }}
+                // onfocus={setInputEmail('')}
+                // onblur="restoreInput(this)"
               />
               <input
-                type="text"
+                type={showPassword ? 'text' : 'password'}
                 value={inputPassword}
                 name="password"
                 id="password"
@@ -34,6 +37,18 @@ export default function Login() {
                   setInputPassword(e.target.value)
                 }}
               />
+              <input
+                type="checkbox"
+                // checkbox與radio button是以checked來決定呈現狀態
+                checked={showPassword}
+                onChange={(e) => {
+                  // 第一種寫法，使用事件的checked值
+                  //setShowPassword(e.target.checked)
+                  // 第二種寫法，布林值切換(toggle)
+                  setShowPassword(!showPassword)
+                }}
+              />
+              <MdOutlineRemoveRedEye />
               <button className={styles.loginButton}>登入</button>
             </form>
           </div>
