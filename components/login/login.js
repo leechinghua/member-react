@@ -4,9 +4,9 @@ import Image from 'next/image'
 import { MdOutlineRemoveRedEye } from 'react-icons/md'
 
 export default function Login() {
-  const [inputEmail, setInputEmail] = useState('請輸入您的信箱')
+  const [inputEmail, setInputEmail] = useState('')
   // 密碼輸入框
-  const [inputPassword, setInputPassword] = useState('請輸入您的密碼')
+  const [inputPassword, setInputPassword] = useState('')
   // 顯示密碼的核取方塊使用，切換是否要呈現密碼
   const [showPassword, setShowPassword] = useState(false)
 
@@ -22,6 +22,7 @@ export default function Login() {
                 value={inputEmail}
                 name="email"
                 id="email"
+                placeholder="請輸入您的信箱"
                 onChange={(e) => {
                   setInputEmail(e.target.value)
                 }}
@@ -33,6 +34,7 @@ export default function Login() {
                 value={inputPassword}
                 name="password"
                 id="password"
+                placeholder="請輸入您的密碼"
                 onChange={(e) => {
                   setInputPassword(e.target.value)
                 }}
