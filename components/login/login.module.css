@@ -123,3 +123,7 @@
 .link:hover{
   color: var(--secondary-3, #fdaf17);
 }
+
+.checkbox{
+  visibility: hidden;
+}
