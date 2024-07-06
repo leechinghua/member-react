@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from '@/components/login/login.module.css'
-import Image from 'next/image'
+// import { register } from '@/services/user'
+// import toast, { Toaster } from 'react-hot-toast'
 
 export default function Register() {
+  const [user, setUser] = useState({
+    email: '',
+    password: '',
+    passwordCheck: '',
+  })
+
+  // 輸入帳號 密碼
+  const handleFieldChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value })
+  }
+  // 送出帳號密碼
+  const handleSubmit = async(e)=>{
+    e.preventDefault()
+
+  }
   return (
     <>
       <div className={styles.loginPanel}>
@@ -23,34 +39,39 @@ export default function Register() {
                 <div className="dot" />
               </div>
             </div>
-            <form className={styles.loginForm}>
+            <form className={styles.loginForm} onSubmit={handleSubmit}>
               <input
                 type="text"
                 placeholder="請輸入您的信箱"
                 name="email"
                 id="email"
-                onChange={() => {}}
+                value={user.email}
+                onChange={handleFieldChange}
               />
               <input
                 type="password"
                 name="password"
                 id="password"
                 placeholder="請輸入您的密碼"
-                onChange={() => {}}
+                value={user.password}
+                onChange={handleFieldChange}
               />
               <div>需含有8字元以上英文字母數字和符號</div>
               <input
                 type="password"
-                name="password"
-                id="password"
+                name="passwordCheck"
+                id="passwordCheck"
                 placeholder="請輸入您的密碼"
-                onChange={() => {}}
+                value={user.passwordcheck}
+                onChange={handleFieldChange}
               />
               <input type="checkbox" name="checkbox" />
               <label htmlFor="checkbox">
                 我同意Yeah Fun的<a>會員條款</a>跟<a>隱私政策</a>
               </label>
-              <button className={styles.loginButton}>註冊</button>
+              <button type="submit" className={styles.loginButton}>
+                註冊
+              </button>
             </form>
           </div>
         </div>
