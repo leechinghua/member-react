@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from '@/components/login/login.module.css'
-// import { register } from '@/services/user'
-// import toast, { Toaster } from 'react-hot-toast'
+import { z } from 'zod'
+
 
 export default function Register() {
   const [user, setUser] = useState({
@@ -15,10 +15,30 @@ export default function Register() {
     setUser({ ...user, [e.target.name]: e.target.value })
   }
   // 送出帳號密碼
-  const handleSubmit = async(e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault()
-
   }
+  // const checkForm = () => {
+  //   const schema = z.object({
+  //     name: z.string().min(2, { message: '姓名最少兩個字' }),
+  //     email: z.string().email({ message: '請輸入正確的 Email 格式' }),
+  //     mobile: z
+  //       .string()
+  //       .regex(/^09\d{2}-?\d{3}-?\d{3}$/, { message: '請輸入正確的手機號碼' }),
+  //   })
+  //   const result = schema.safeParse(user)
+  //   console.log(JSON.stringify(result, null, 4))
+
+  //   let newErrors = { ...initErrors }
+  //   if (!result.success) {
+  //     for (let i of result.error.issues) {
+  //       newErrors[i.path[0]] = i.message
+  //     }
+  //     setMyErrors(newErrors)
+  //   }
+
+  //   return result.success
+  // }
   return (
     <>
       <div className={styles.loginPanel}>
