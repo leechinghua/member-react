@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styles from '@/components/login/login.module.css'
-// import Image from 'next/image'
+import Image from 'next/image'
 import { MdOutlineRemoveRedEye } from 'react-icons/md'
 
 export default function Login() {
@@ -68,20 +68,20 @@ export default function Login() {
           <div className={styles.section3}>
             <div className={styles.socialMedia}>
               <span className={styles.icon}>
-                {/* <Image
+                <Image
                   src="/facebook.svg"
                   alt="Facebook Icon"
                   width={60}
                   height={60}
-                /> */}
+                />
               </span>
               <span className={styles.icon}>
-                {/* <Image
+                <Image
                   src="/google.svg"
                   alt="Facebook Icon"
                   width={60}
                   height={60}
-                /> */}
+                />
               </span>
             </div>
             <div>
