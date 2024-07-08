@@ -1,44 +1,79 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import styles from '@/components/login/login.module.css'
-import { z } from 'zod'
 
 
 export default function Register() {
   const [user, setUser] = useState({
     email: '',
     password: '',
-    passwordCheck: '',
+    confirmPassword: '',
+    agree: false, // checkbox 同意會員註冊條款
   })
+  // 錯誤訊息狀態
+  const [errors, setErrors] = useState({
+    email: '',
+    password: '',
+    confirmPassword: '',
+    agree: '', // 呈現錯誤訊息用字串
+  })
+
+  // checkbox 呈現密碼用
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
   // 輸入帳號 密碼
   const handleFieldChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value })
+    console.log(e.target.name, e.target.value, e.target.type)
+    if (e.target.name === 'agree') {
+      setUser({ ...user, [e.target.name]: e.target.checked })
+    } else {
+      setUser({ ...user, [e.target.name]: e.target.value })
+    }
   }
   // 送出帳號密碼
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    // 表單檢查 --- START
+    // 建立一個新的錯誤物件
+    const newErrors = { 
+      email: '',
+      password: '',
+      confirmPassword: '',
+    }
+    if (!user.email) {
+      newErrors.email = 'email為必填'
+    }
+    if (user.password !== user.confirmPassword) {
+      newErrors.password = '密碼與確認密碼需要一致'
+      newErrors.confirmPassword = '密碼與確認密碼需要一致'
+    }
+    if (!user.password) {
+      newErrors.password = '密碼為必填'
+    }
+    if (!user.confirmPassword) {
+      newErrors.confirmPassword = '確認密碼為必填'
+    }
+    if (!user.agree) {
+      newErrors.agree = '請先同意會員註冊條款'
+    }
+    // 呈現錯誤訊息
+    setErrors(newErrors)
+
+    // 物件屬性值中有非空白字串時，代表有錯誤發生
+    const hasErrors = Object.values(newErrors).some((v) => v)
+
+    // 有錯誤，不送到伺服器，跳出submit函式
+    if (hasErrors) {
+      return
+    }
+    // 表單檢查 --- END
+
+    // 最後檢查完全沒問題才送到伺服器(ajax/fetch)
+    alert('送到伺服器去')
+
   }
-  // const checkForm = () => {
-  //   const schema = z.object({
-  //     name: z.string().min(2, { message: '姓名最少兩個字' }),
-  //     email: z.string().email({ message: '請輸入正確的 Email 格式' }),
-  //     mobile: z
-  //       .string()
-  //       .regex(/^09\d{2}-?\d{3}-?\d{3}$/, { message: '請輸入正確的手機號碼' }),
-  //   })
-  //   const result = schema.safeParse(user)
-  //   console.log(JSON.stringify(result, null, 4))
-
-  //   let newErrors = { ...initErrors }
-  //   if (!result.success) {
-  //     for (let i of result.error.issues) {
-  //       newErrors[i.path[0]] = i.message
-  //     }
-  //     setMyErrors(newErrors)
-  //   }
-
-  //   return result.success
-  // }
+  
   return (
     <>
       <div className={styles.loginPanel}>
@@ -69,23 +104,34 @@ export default function Register() {
                 onChange={handleFieldChange}
               />
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 name="password"
                 id="password"
                 placeholder="請輸入您的密碼"
                 value={user.password}
                 onChange={handleFieldChange}
               />
+              <input
+                type="checkbox"
+                checked={showPassword}
+                onChange={(e) => {
+                  setShowPassword(e.target.checked)
+                }}
+              />{' '}
+              顯示密碼
               <div>需含有8字元以上英文字母數字和符號</div>
               <input
                 type="password"
                 name="passwordCheck"
                 id="passwordCheck"
                 placeholder="請輸入您的密碼"
-                value={user.passwordcheck}
+                value={user.confirmPassword}
                 onChange={handleFieldChange}
               />
-              <input type="checkbox" name="checkbox" />
+              <input type="checkbox"
+                name="agree"
+                checked={user.agree}
+                onChange={handleFieldChange}/>
               <label htmlFor="checkbox">
                 我同意Yeah Fun的<a>會員條款</a>跟<a>隱私政策</a>
               </label>
