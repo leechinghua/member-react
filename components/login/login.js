@@ -85,7 +85,13 @@ export default function Login() {
               </span>
             </div>
             <div>
-              還沒有帳號嗎?<a className={styles.link}>註冊</a>
+              還沒有帳號嗎?
+              <a
+                className={styles.link}
+                href="http://localhost:3001/welcome/register"
+              >
+                註冊
+              </a>
             </div>
             <div>
               <a className={styles.link}>忘記密碼</a>
